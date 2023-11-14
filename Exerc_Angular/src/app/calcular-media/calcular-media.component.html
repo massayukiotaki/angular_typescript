@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <h2>Calculadora de Média</h2>
+    <form id="mediaForm">
+        <div class="form-group">
+            <label for="ac1">AC1:</label>
+            <input type="number" class="form-control" id="ac1" required>
+        </div>
+        <div class="form-group">
+            <label for="ac2">AC2:</label>
+            <input type="number" class="form-control" id="ac2" required>
+        </div>
+        <div class="form-group">
+            <label for="ag">AG:</label>
+            <input type="number" class="form-control" id="ag" required>
+        </div>
+        <div class="form-group">
+            <label for="af">AF:</label>
+            <input type="number" class="form-control" id="af" required>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="calcularMedia()">Calcular</button>
+    </form>
+    <div id="resultado" class="mt-3"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function calcularMedia() {
+        var ac1 = parseFloat(document.getElementById('ac1').value);
+        var ac2 = parseFloat(document.getElementById('ac2').value);
+        var ag = parseFloat(document.getElementById('ag').value);
+        var af = parseFloat(document.getElementById('af').value);
+
+        var mediaFinal = (ac1 * 0.15) + (ac2 * 0.30) + (ag * 0.10) + (af * 0.45);
+
+        var resultadoElement = document.getElementById('resultado');
+        resultadoElement.innerHTML = '<h4>Média Final: ' + mediaFinal.toFixed(2) + '</h4>';
+
+        if (mediaFinal >= 5) {
+            resultadoElement.innerHTML += '<p class="text-success">Aprovado!</p>';
+        } else {
+            resultadoElement.innerHTML += '<p class="text-danger">Reprovado.</p>';
+        }
+    }
+</script>

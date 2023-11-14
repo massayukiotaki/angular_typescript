@@ -1,0 +1,22 @@
+<form #form="ngForm" (ngSubmit)="cadastrarAluno()">
+    <label for="ra">RA:</label>
+    <input type="text" id="ra" name="ra" [(ngModel)]="aluno.ra" required><br>
+  
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" [(ngModel)]="aluno.nome" required><br>
+  
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="aluno.email" required><br>
+  
+    <label for="celular">Celular:</label>
+    <input type="tel" id="celular" name="celular" [(ngModel)]="aluno.celular" required><br>
+  
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <h2>Alunos Cadastrados:</h2>
+<ul>
+  <li *ngFor="let aluno of alunos">
+    RA: {{ aluno.ra }}, Nome: {{ aluno.nome }}, Email: {{ aluno.email }}, Celular: {{ aluno.celular }}
+  </li>
+</ul>
